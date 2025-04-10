@@ -733,7 +733,7 @@ body.clinic_version .footer .widget-title h3 {
 .form-contant {
     float: left;
     position: absolute;
-    width: 40%;
+    width: 60%;
     height: 100%;
     background: rgba(0,0,0,.8);
     z-index: 1;
