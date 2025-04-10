@@ -219,3 +219,45 @@ var TxtType = function(el, toRotate, period) {
     }
 	
 /*== map js ==*/	
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all FAQ items
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    // Initially hide all FAQ answers except the active one
+    faqItems.forEach(item => {
+      if (!item.classList.contains('active')) {
+        const content = item.querySelector('.faq-content');
+        if (content) content.style.display = 'none';
+      }
+    });
+  
+    // Add click event to each FAQ item
+    faqItems.forEach(item => {
+      item.addEventListener('click', function() {
+        // Close other open items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            const otherContent = otherItem.querySelector('.faq-content');
+            const otherIcon = otherItem.querySelector('i');
+            if (otherContent) otherContent.style.display = 'none';
+            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+          }
+        });
+  
+        // Toggle current item
+        this.classList.toggle('active');
+        const content = this.querySelector('.faq-content');
+        const icon = this.querySelector('i');
+        
+        if (content) {
+          content.style.display = this.classList.contains('active') ? 'block' : 'none';
+        }
+        
+        if (icon) {
+          icon.style.transform = this.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+      });
+    });
+  });
