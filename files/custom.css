@@ -721,10 +721,10 @@ body.clinic_version .footer .widget-title h3 {
     color: #fff;
 }
 .contact-section {
-    float: left;
     width: 100%;
     min-height: 450px;
-    background: yellow;
+    display: flex;
+    justify-content: center;
 }
 .contact-section {
 	position:relative;
@@ -1347,7 +1347,13 @@ nav.main-menu .navbar-toggle {border: solid #fff 2px;}
 
 
 
+p.logo-padding a {
+    color: #39b49b !important;
+}
 
+p.logo-padding a:hover {
+    color: #157fda !important;
+}
 
 
 
