@@ -372,39 +372,79 @@
          </div>
          <div class="contact-section">
             <div class="form-contant">
-               <form id="ajax-contact">
-                  <div class="row">
-                     <div class="col-md-6">
-                        <div class="form-group in_name">
-                           <input type="text" class="form-control" placeholder="Name" required="required">
+                <form id="ajax-contact">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group in_name">
+                                <input type="text" class="form-control" placeholder="Name" required="required">
+                            </div>
                         </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="form-group in_email">
-                           <input type="email" class="form-control" placeholder="E-mail" required="required">
+                        <div class="col-md-6">
+                            <div class="form-group in_email">
+                                <input type="email" class="form-control" placeholder="E-mail" required="required">
+                            </div>
                         </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="form-group in_email">
-                           <input type="tel" class="form-control" id="phone" placeholder="Phone" required="required">
+                        <div class="col-md-6">
+                            <div class="form-group in_email">
+                                <input type="tel" class="form-control" id="phone" placeholder="Phone" required="required">
+                            </div>
                         </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="form-group in_email">
-                           <input type="text" class="form-control" id="subject" placeholder="Subject" required="required">
+                        <div class="col-md-6">
+                            <div class="form-group in_email">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject" required="required">
+                            </div>
                         </div>
-                     </div>
-                     <div class="col-md-12">
-                        <div class="form-group in_message"> 
-                           <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required"></textarea>
+                        
+                        <!-- Doctor Type Dropdown -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="doctor-type">What type of doctor are you?</label>
+                                <select class="form-control" id="doctor-type" required>
+                                    <option value="" disabled selected>What type of doctor are you?</option>
+                                    <option value="1">GP Fellow / VR-GP</option>
+                                    <option value="2">GP Registrar / AGPT</option>
+                                    <option value="3">Medical Officer (PGY1 or 2)</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="actions">
-                           <input type="submit" value="Send Message" name="submit" id="submitButton" class="btn small" title="Submit Your Message!">
+                        
+                        <!-- Shift Preferences Checkboxes -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>What shifts are you looking for?</label>
+                                <div class="checkbox-group">
+                                    <div class="custom-checkbox">
+                                        <input type="checkbox" id="home-visit" name="shift-pref" value="home-visit">
+                                        <label for="home-visit">Home Visit</label>
+                                    </div>
+                                    <div class="custom-checkbox">
+                                        <input type="checkbox" id="telehealth" name="shift-pref" value="telehealth">
+                                        <label for="telehealth">Telehealth</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </form>
+                        
+                        <div class="col-md-12">
+                            <div class="actions">
+                                <input type="submit" value="Send Message" name="submit" id="submitButton" class="btn small" title="Submit Your Message!">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <script>
+                  document.getElementById("ajax-contact").addEventListener("submit", function (e) {
+                     e.preventDefault();
+           
+                     document.getElementById("ajax-contact").innerHTML = '<div style="text-align: center;"><img src="files/loading.gif" width="80"></div>';
+           
+                     setTimeout(() => {
+                        document.getElementById("ajax-contact").innerHTML = '<p style="font-size: 18px; color:white; font-weight: 700; text-align: center;">Thank you for booking an appointment with {Company}. We will confirm your appointment via text message shortly.</p>';
+                     }, 2000);
+                  });
+               </script>
             </div>
+         </div>
          </div>
       </div>
       <footer id="footer" class="footer-area wow fadeIn">
